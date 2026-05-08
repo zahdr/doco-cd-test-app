@@ -7,3 +7,15 @@ services:
        timeout: 10s
        start_period: 5s
        retries: 3
+
+  db:
+    image: mariadb:latest
+    environment:
+      MARIADB_DATABASE: mydb
+      MARIADB_ROOT_PASSWORD: changeme
+    healthcheck:
+       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+       interval: 30s
+       timeout: 10s
+       start_period: 5s
+       retries: 3
