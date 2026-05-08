@@ -10,6 +10,4 @@ services:
 
   db:
     image: mariadb:latest
-    environment:
-      MARIADB_DATABASE: mydb
-      MARIADB_ROOT_PASSWORD: changeme
+    env_file: cow.secrets.enc.env
