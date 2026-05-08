@@ -14,7 +14,7 @@ services:
       MARIADB_DATABASE: mydb
       MARIADB_ROOT_PASSWORD: changeme
     healthcheck:
-       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+       test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p$MARIADB_ROOT_PASSWORD"]
        interval: 30s
        timeout: 10s
        start_period: 5s
