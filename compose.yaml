@@ -1,8 +1,6 @@
 services:
   web:
     image: nginx:latest
-    ports:
-      - 8080:80
     healthcheck:
        test: ["CMD", "curl", "-f", "http://localhost/"]
        interval: 30s
@@ -12,5 +10,3 @@ services:
 
   proxy:
     image: nginx:latest
-    ports:
-      - 8081:80
