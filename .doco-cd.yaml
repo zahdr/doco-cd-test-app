@@ -1,11 +1,9 @@
 name: app-sheep
 force_image_pull: true
-destroy: true
 compose_files:
   - app-sheep.yaml
 ---
 name: app-cow
-destroy: true
 force_image_pull: true
 compose_files:
   - app-cow.yaml
