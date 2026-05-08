@@ -3,3 +3,14 @@ services:
     image: nginx:latest
     ports:
       - 8080:80
+    healthcheck:
+       test: ["CMD", "curl", "-f", "http://localhost/"]
+       interval: 30s
+       timeout: 10s
+       start_period: 5s
+       retries: 3
+
+  proxy:
+    image: nginx:latest
+    ports:
+      - 8081:80
