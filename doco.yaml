@@ -11,12 +11,14 @@ services:
       TZ: Europe/Berlin
       #GIT_ACCESS_TOKEN: xxx
       # WEBHOOK_SECRET: xxx  # Uncomment this line and the webhook port above and set a secure secret if you want to use webhooks.
-      SOPS_AGE_KEY_FILE: /run/secrets/sops_age_key
+      SOPS_AGE_KEY_FILE: /run/secrets/sops_age_key_file
       POLL_CONFIG: |
         - url: https://github.com/zahdr/doco-cd-test-app.git
           reference: main
           interval: 30
           target: ""
+    secrets:
+      - sops_age_key_file
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       # The data volume (left side) can also be replaced with a bind mount to a local directory, for example:
@@ -35,5 +37,5 @@ volumes:
   data:
 
 secrets:
-  sops_age_key:
-    file: sops_age_key
+  sops_age_key_file:
+    file: sops_age_key.txt

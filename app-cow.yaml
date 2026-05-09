@@ -10,4 +10,5 @@ services:
 
   db:
     image: mariadb:latest
-    env_file: cow.secrets.enc.env
+    env_file:
+      - cow.secrets.enc.env
